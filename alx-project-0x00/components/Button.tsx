@@ -1,19 +1,13 @@
 // components/Button.tsx
 import React from "react";
 import classNames from "classnames";
+import { ButtonProps } from "@/interfaces";
 
-type ButtonProps = {
-  title: string;
-  size?: "small" | "medium" | "large";
-  shape?: "rounded-sm" | "rounded-md" | "rounded-full";
-  className?: string;
-};
-
-export const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   title,
   size = "medium",
   shape = "rounded-md",
-  className = "",
+  styles = "",
 }) => {
   const sizeClass = {
     small: "text-sm px-3 py-1",
@@ -27,10 +21,12 @@ export const Button: React.FC<ButtonProps> = ({
         "bg-blue-600 text-white font-semibold hover:bg-blue-700 transition duration-300",
         sizeClass,
         shape,
-        className
+        styles
       )}
     >
       {title}
     </button>
   );
 };
+
+export default Button;

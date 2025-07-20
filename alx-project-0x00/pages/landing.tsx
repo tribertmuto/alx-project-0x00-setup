@@ -1,58 +1,28 @@
-import Card from "@/components/Card";
+// pages/landing.tsx
 import React from "react";
+import Button from "@/components/Button"; // ✅ Fixed import path
 
-const Landing: React.FC = () => {
+export default function LandingPage() {
   return (
-    <div>
-      <h1 className="text-xl font-extralight">Landing Page</h1>
-      <Card />
+    <div className="min-h-screen flex flex-col items-center justify-center gap-6 bg-gray-50 p-10">
+      <h1 className="text-2xl font-bold mb-4">Landing Page Buttons</h1>
+
+      <div className="flex flex-wrap gap-4 justify-center">
+        {/* Small Buttons */}
+        <Button title="Small SM" size="small" shape="rounded-sm" />
+        <Button title="Small MD" size="small" shape="rounded-md" />
+        <Button title="Small FULL" size="small" shape="rounded-full" />
+
+        {/* Medium Buttons */}
+        <Button title="Medium SM" size="medium" shape="rounded-sm" />
+        <Button title="Medium MD" size="medium" shape="rounded-md" />
+        <Button title="Medium FULL" size="medium" shape="rounded-full" />
+
+        {/* Large Buttons */}
+        <Button title="Large SM" size="large" shape="rounded-sm" />
+        <Button title="Large MD" size="large" shape="rounded-md" />
+        <Button title="Large FULL" size="large" shape="rounded-full" />
+      </div>
     </div>
   );
-};
-
-export default Landing;
-// components/Button.tsx
-import React from "react";
-import classNames from "classnames";
-
-type ButtonProps = {
-  title: string;
-  size?: "small" | "medium" | "large";
-  shape?: "rounded-sm" | "rounded-md" | "rounded-full";
-  className?: string;
-};
-
-export const Button: React.FC<ButtonProps> = ({
-  title,
-  size = "medium",
-  shape = "rounded-md",
-  className = "",
-}) => {
-  const sizeClass = {
-    small: "text-sm px-3 py-1",
-    medium: "text-base px-4 py-2",
-    large: "text-lg px-6 py-3",
-  }[size];
-
-  return (
-    <button
-      className={classNames(
-        "bg-blue-600 text-white font-semibold hover:bg-blue-700 transition duration-300",
-        sizeClass,
-        shape,
-        className
-      )}
-    >
-      {title}
-    </button>
-  );
-};
-// components/Pill.tsx
-import { PillProps } from "@/interfaces";   
-const Pill: React.FC<PillProps> = ({ title }) => {
-  return (
-    <div className="flex justify-center items-center bg-[#F9F9F9] px-3 w-auto h-[27px] rounded-full">
-      <p className="text-sm">{title}</p>
-    </div>
-  );
-};
+}
