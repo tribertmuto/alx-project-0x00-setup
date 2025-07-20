@@ -1,16 +1,3 @@
-import Card from "@/components/Card";
-import React from "react";
-
-const Landing: React.FC = () => {
-  return (
-    <div>
-      <h1 className="text-xl font-extralight">Landing Page</h1>
-      <Card />
-    </div>
-  );
-};
-
-export default Landing;
 // components/Button.tsx
 import React from "react";
 import classNames from "classnames";
@@ -45,14 +32,5 @@ export const Button: React.FC<ButtonProps> = ({
     >
       {title}
     </button>
-  );
-};
-// components/Pill.tsx
-import { PillProps } from "@/interfaces";   
-const Pill: React.FC<PillProps> = ({ title }) => {
-  return (
-    <div className="flex justify-center items-center bg-[#F9F9F9] px-3 w-auto h-[27px] rounded-full">
-      <p className="text-sm">{title}</p>
-    </div>
   );
 };
