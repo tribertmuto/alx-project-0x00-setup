@@ -1,55 +1,46 @@
-import React from 'react';
-import { ButtonProps } from '../interfaces';
+// components/Button.tsx
+import { ButtonProps } from "@/interfaces";
+import React from "react";
 
-const Button: React.FC<ButtonProps> = ({
-  title,
-  size = 'medium',
-  shape = 'rounded-md',
+const Button: React.FC<ButtonProps> = ({ 
+  title, 
+  size = 'medium', 
+  shape = 'rounded-md', 
   variant = 'primary',
-  onClick,
-  disabled = false,
-  className = '',
+  onClick 
 }) => {
   // Size classes
   const sizeClasses = {
-    small: 'px-3 py-1.5 text-sm',
+    small: 'px-3 py-1 text-sm',
     medium: 'px-4 py-2 text-base',
-    large: 'px-6 py-3 text-lg',
+    large: 'px-6 py-3 text-lg'
   };
 
   // Shape classes
   const shapeClasses = {
     'rounded-sm': 'rounded-sm',
     'rounded-md': 'rounded-md',
-    'rounded-full': 'rounded-full',
+    'rounded-full': 'rounded-full'
   };
 
   // Variant classes
   const variantClasses = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white border-transparent',
-    secondary: 'bg-gray-600 hover:bg-gray-700 text-white border-transparent',
-    outline: 'bg-transparent hover:bg-blue-50 text-blue-600 border-blue-600 border-2',
+    primary: 'bg-blue-500 text-white hover:bg-blue-600',
+    secondary: 'bg-gray-500 text-white hover:bg-gray-600',
+    outline: 'border border-blue-500 text-blue-500 hover:bg-blue-50'
   };
 
-  // Base classes
-  const baseClasses = 'font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed';
-
-  // Combine all classes
   const buttonClasses = [
-    baseClasses,
+    'font-semibold',
+    'transition-colors',
+    'cursor-pointer',
     sizeClasses[size],
     shapeClasses[shape],
-    variantClasses[variant],
-    className,
+    variantClasses[variant]
   ].join(' ');
 
   return (
-    <button
-      className={buttonClasses}
-      onClick={onClick}
-      disabled={disabled}
-      type="button"
-    >
+    <button className={buttonClasses} onClick={onClick}>
       {title}
     </button>
   );
